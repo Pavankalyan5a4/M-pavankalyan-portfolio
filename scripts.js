@@ -1,16 +1,18 @@
-// Select all navigation links
+// Select all navigation links and sections
 const navLinks = document.querySelectorAll(".nav-link");
+const sections = document.querySelectorAll("section");
 
 // Function to remove active class from all links
 function removeActiveClasses() {
     navLinks.forEach(link => link.classList.remove("active"));
+    sections.forEach(section => section.classList.remove("active"));
 }
 
 // Function to highlight the correct nav link when scrolling
 function highlightNavOnScroll() {
     let scrollPosition = window.scrollY;
 
-    document.querySelectorAll("section").forEach(section => {
+    sections.forEach(section => {
         let sectionTop = section.offsetTop - 50; // Adjusted for navbar height
         let sectionHeight = section.offsetHeight;
         let sectionId = section.getAttribute("id");
@@ -18,6 +20,7 @@ function highlightNavOnScroll() {
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
             removeActiveClasses();
             document.querySelector(`a[href="#${sectionId}"]`).classList.add("active");
+            section.classList.add("active");
         }
     });
 }
