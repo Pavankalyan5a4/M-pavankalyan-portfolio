@@ -71,6 +71,8 @@ section {
 section.active {
     background: #10d4e6;
 }
+
+/* Skills Section */
 #skills {
     max-width: 900px;
     margin: 50px auto;
